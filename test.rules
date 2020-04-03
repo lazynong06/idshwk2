@@ -1,2 +1,2 @@
-alert tcp any any -> any 3399 (msg:"This will not be shown."; pcre:"/(login|Initial)";flowbits:set,skeptical;flowbits:noalert;)
+alert tcp any any -> any 3399 (msg:"This will not be shown."; content:"login";content:"Initial";flowbits:set,skeptical;flowbits:noalert;)
 alert tcp any any -> any 3399 (msg:"bot founded";flowbits:isset,skeptical;pcre:"/(2(5[0-5]|[0-4]\d)|[0-1]?\d{1,2})(\.(2(5[0-5]|[0-4]\d)|[0-1]?\d{1,2})){3}:(6[0-4]\d{4}|65[0-4]\d{2}|655[0-2]\d|6553[0-5]|[1-5]\d{4}|[1-9]\d{3}|[1-9]\d{2}|[1-9]\d|[0-9])";sid:1000001;)
